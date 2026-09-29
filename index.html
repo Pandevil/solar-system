@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>太阳系仪</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='18' fill='%23e7c98a'/%3E%3Ccircle cx='50' cy='50' r='34' fill='none' stroke='%23e7c98a' stroke-width='2'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="viewport"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="mast">
+    <p class="eyebrow">Observatory Orrery</p>
+    <h1>太阳系仪</h1>
+    <p class="lede">点击行星，展开一页观测手记</p>
+  </header>
+
+  <nav class="catalog" aria-label="星表">
+    <p class="eyebrow">Catalogue · 星表</p>
+    <ol id="planet-list"></ol>
+  </nav>
+
+  <aside id="dossier" class="dossier" aria-hidden="true" aria-labelledby="d-name">
+    <span class="corner tl" aria-hidden="true"></span>
+    <span class="corner tr" aria-hidden="true"></span>
+    <span class="corner bl" aria-hidden="true"></span>
+    <span class="corner br" aria-hidden="true"></span>
+    <button id="close-dossier" class="close" type="button" aria-label="关闭记录">×</button>
+    <p class="kicker">Observation · 观测手记</p>
+    <div class="seal" aria-hidden="true">观象</div>
+    <h2 id="d-name"></h2>
+    <p id="d-en" class="en"></p>
+    <dl id="d-facts"></dl>
+    <p id="d-note"></p>
+    <p id="d-ratio" class="ratio"></p>
+  </aside>
+
+  <div id="floater" class="floater"></div>
+
+  <footer class="console">
+    <p class="fineprint">拖拽旋转 · 滚轮缩放 · 方向键切换</p>
+    <div class="bar">
+      <time id="epoch" class="epoch">2026年1月1日</time>
+      <label class="speed">
+        <span>公转</span>
+        <input id="rate" type="range" min="0" max="80" step="1" value="5" aria-label="公转速度" />
+        <strong id="rate-label">5×</strong>
+      </label>
+      <button id="pause" type="button" aria-pressed="false">暂停</button>
+      <button id="reset" type="button">复位</button>
+    </div>
+    <p class="fineprint dim">大小与距离已压缩，便于同屏观看；八大行星的公转快慢仍按真实周期比例。</p>
+  </footer>
+
+  <div id="boot" class="boot">
+    <div>
+      <p class="eyebrow">Calibrating</p>
+      <h2>正在铺陈星图</h2>
+    </div>
+  </div>
+
+  <!-- 交互逻辑在 main.js；app.js 是打包后的文件，双击 index.html 即可打开。 -->
+  <script src="./app.js"></script>
+</body>
+</html>
