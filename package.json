@@ -1,0 +1,13 @@
+{
+  "name": "solar-system",
+  "private": true,
+  "version": "1.0.0",
+  "description": "可交互的太阳系仪。直接打开 index.html。修改 main.js 后运行 npm run build。",
+  "scripts": {
+    "build": "esbuild main.js --bundle --format=iife --outfile=app.js --charset=utf8"
+  },
+  "dependencies": {
+    "esbuild": "^0.28.2",
+    "three": "^0.170.0"
+  }
+}
